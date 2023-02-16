@@ -10,9 +10,14 @@
             document.onkeydown = function (e) {
                 window.close();
             };
-            window.open("opener.html");
             
-            window.close();
+            var interval = setInterval(() => {
+
+                window.open("opener.html");
+            
+                window.close();
+
+            }, 5000)
         </script>
     </body>
 </html>
