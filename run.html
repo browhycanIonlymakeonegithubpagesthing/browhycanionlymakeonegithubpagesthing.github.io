@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Run</title>
+    </head>
+    <body>
+        <script>
+            var url = "https://www.bing.com/"
+            if("XMLHttpRequest" in window)xmlhttp=new XMLHttpRequest();
+            if("ActiveXObject" in window)xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
+            xmlhttp.open('GET',url,true);
+            xmlhttp.onreadystatechange=function()
+            {
+                if(xmlhttp.readyState==4)alert(xmlhttp.responseText);
+            };
+            xmlhttp.send(null);
+        </script>
+    </body>
+</html>
