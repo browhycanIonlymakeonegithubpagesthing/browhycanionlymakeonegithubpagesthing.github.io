@@ -2,5 +2,5 @@
 how are you doing?
 good?
 alright cool
-Credit goes to Crazygird and Gamer-Guy12 and BlueHalooo for index.html, the openers, and the crasher.
+Credit goes to Crazygird and BlueHalooo for index.html, the openers, and the crasher.
 thanks for everything i guess
