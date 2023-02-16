@@ -13,6 +13,9 @@
                 close = true;
 
             }
+                        document.onkeydown = function (e) {
+                window.close();
+            };
             if (close) window.close();
             window.open("opener.html");
             window.close();
