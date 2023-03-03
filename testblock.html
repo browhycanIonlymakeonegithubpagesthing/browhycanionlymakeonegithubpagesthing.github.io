@@ -2,78 +2,84 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Blocked Website</title>
+    <title>Password Form</title>
     <style>
-      .blocked-screen {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      /* Style for the blocked screen */
+      #blocked-screen {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        background-color: #eee;
-        font-size: 2rem;
-        font-weight: bold;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      #blocked-screen h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      #blocked-screen p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
       }
     </style>
   </head>
   <body>
-    <div class="blocked-screen">This website is blocked.</div>
+    <button id="remove-iframe" style="display: none;">Remove Iframe</button>
+    <div id="blocked-screen">
+      <h1>Website Blocked</h1>
+      <p>Please enter the password to continue</p>
+    </div>
     <script>
+      // Password to remove blocked screen and display iframe
       const password = 'COMPUTER';
-      const iframeSrc = 'https://hamburger.onrender.com/';
 
-      function createIframe() {
+      // Function to remove blocked screen and display iframe
+      function removeBlockedScreen() {
+        const blockedScreen = document.getElementById('blocked-screen');
+        blockedScreen.style.display = 'none';
+        const iframeContainer = document.createElement('div');
+        iframeContainer.style.position = 'absolute';
+        iframeContainer.style.top = '0';
+        iframeContainer.style.left = '0';
+        iframeContainer.style.width = '100%';
+        iframeContainer.style.height = '100%';
+        document.body.appendChild(iframeContainer);
+        const removeButton = document.getElementById('remove-iframe');
+        removeButton.style.display = 'block';
         const iframe = document.createElement('iframe');
-        iframe.src = iframeSrc;
-        iframe.style = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 9999;';
-        document.body.appendChild(iframe);
-
-        const removeButton = document.createElement('button');
-        removeButton.textContent = 'Remove';
-        removeButton.style = 'position: absolute; top: 0; left: 0; font-size: 2rem; padding: 1rem;';
-        document.body.appendChild(removeButton);
-
-        removeButton.addEventListener('click', removeIframe);
+        iframe.setAttribute('src', 'http://hamburger.onrender.com');
+        iframe.style.width = '100%';
+        iframe.style.height = 'calc(100% - 40px)';
+        iframeContainer.appendChild(iframe);
       }
 
-      function removeIframe() {
-        const iframe = document.querySelector('iframe');
-        if (iframe) {
-          iframe.remove();
-
-          const removeButton = document.querySelector('button');
-          if (removeButton) {
-            removeButton.remove();
-          }
-        }
-      }
-
-      const passwordInput = document.createElement('input');
-      passwordInput.type = 'password';
-      passwordInput.id = 'password-input';
-      passwordInput.placeholder = 'Enter your password...';
-      passwordInput.style = 'font-size: 2rem; padding: 1rem;';
-      document.body.appendChild(passwordInput);
-
-      const submitButton = document.createElement('button');
-      submitButton.type = 'button';
-      submitButton.textContent = 'Submit';
-      submitButton.style = 'font-size: 2rem; padding: 1rem;';
-      document.body.appendChild(submitButton);
-
-      submitButton.addEventListener('click', function() {
-        const passwordValue = document.getElementById('password-input').value;
+      // Function to handle form submission
+      function handleSubmit(event) {
+        event.preventDefault();
+        const passwordInput = document.getElementById('password-input');
+        const passwordValue = passwordInput.value;
         if (passwordValue === password) {
-          createIframe();
-
-          const blockedScreen = document.querySelector('.blocked-screen');
-          if (blockedScreen) {
-            blockedScreen.remove();
-          }
+          removeBlockedScreen();
         } else {
           alert('Incorrect password. Please try again.');
         }
+      }
+
+      // Add event listener to form submit button
+      const submitButton = document.getElementById('submit-button');
+      submitButton.addEventListener('click', handleSubmit);
+
+      // Add event listener to remove iframe button
+      const removeButton = document.getElementById('remove-iframe');
+      removeButton.addEventListener('click', function() {
+        const iframeContainer = document.querySelector('div[data-iframe-container]');
+        iframeContainer.parentNode.removeChild(iframeContainer);
+        removeButton.style.display = 'none';
       });
     </script>
   </body>
