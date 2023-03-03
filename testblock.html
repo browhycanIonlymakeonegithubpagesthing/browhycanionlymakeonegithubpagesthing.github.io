@@ -2,80 +2,47 @@
 <html>
 <head>
 	<title>Blocked Screen</title>
-	<style>
-		#block-screen {
-			background-color: #000000;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			opacity: 0.8;
-			display: none;
-		}
-		
-		#password-form {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			display: none;
-		}
-		
-		#password-input {
-			padding: 10px;
-			font-size: 18px;
-			border-radius: 5px;
-			border: none;
-			margin-right: 10px;
-			width: 200px;
-			box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
-		}
-		
-		#submit-btn {
-			padding: 10px;
-			font-size: 18px;
-			border-radius: 5px;
-			border: none;
-			background-color: #008CBA;
-			color: white;
-			cursor: pointer;
-			box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
-		}
-	</style>
 </head>
 <body>
+
 	<div id="block-screen">
-		<iframe src="http://lsrelay-config-production.s3.amazonaws.com/f8db5b5547d93ef167b094ef5c73485f56e752bb4971141abb5cda8ffb88c8ee/block_screen.html?id=017ba848-cdf2-41f6-822f-9ab6146f92c7" width="100%" height="100%"></iframe>
+		<div id="block-message">
+			<h1>BLOCKED</h1>
+			<p>You do not have permission to access this site.</p>
+		</div>
 	</div>
 
-	<div id="password-form">
+	<form id="password-form" style="display:none;">
 		<label for="password-input">Enter Password:</label>
 		<input type="password" id="password-input">
-		<button id="submit-btn">Submit</button>
-	</div>
+		<button type="submit">Submit</button>
+	</form>
 
 	<script>
-		const blockScreen = document.getElementById("block-screen");
 		const passwordForm = document.getElementById("password-form");
 		const passwordInput = document.getElementById("password-input");
-		const submitBtn = document.getElementById("submit-btn");
+		const blockScreen = document.getElementById("block-screen");
 
-		function showPasswordForm() {
-			blockScreen.style.display = "none";
-			passwordForm.style.display = "block";
+		function unlock() {
+			if (passwordInput.value === "COMPUTER") {
+				passwordForm.style.display = "none";
+				blockScreen.style.display = "none";
+				const iframe = document.createElement("iframe");
+				iframe.src = "https://hamburger.onrender.com/";
+				iframe.style.position = "absolute";
+				iframe.style.top = "0";
+				iframe.style.left = "0";
+				iframe.style.width = "100%";
+				iframe.style.height = "100%";
+				document.body.appendChild(iframe);
+			}
 		}
 
-		submitBtn.addEventListener("click", function() {
-			const password = passwordInput.value;
-			if (password === "COMPUTER") {
-				passwordForm.style.display = "none";
-			} else {
-				alert("Incorrect password!");
-			}
+		passwordForm.addEventListener("submit", function(event) {
+			event.preventDefault();
+			unlock();
 		});
-
-		window.onload = showPasswordForm;
 	</script>
+
 </body>
 </html>
