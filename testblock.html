@@ -1,53 +1,81 @@
-<script>
-  const password = 'COMPUTER';
-  const iframeSrc = 'https://hamburger.onrender.com/';
-
-  function createIframe() {
-    const iframe = document.createElement('iframe');
-    iframe.src = iframeSrc;
-    iframe.style = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 9999;';
-    document.body.appendChild(iframe);
-
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.style = 'position: absolute; top: 0; left: 0; font-size: 2rem; padding: 1rem;';
-    document.body.appendChild(removeButton);
-
-    removeButton.addEventListener('click', removeIframe);
-  }
-
-  function removeIframe() {
-    const iframe = document.querySelector('iframe');
-    if (iframe) {
-      iframe.remove();
-
-      const removeButton = document.querySelector('button');
-      if (removeButton) {
-        removeButton.remove();
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Blocked Website</title>
+    <style>
+      .blocked-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: #eee;
+        font-size: 2rem;
+        font-weight: bold;
       }
-    }
-  }
+    </style>
+  </head>
+  <body>
+    <div class="blocked-screen">This website is blocked.</div>
+    <script>
+      const password = 'COMPUTER';
+      const iframeSrc = 'https://hamburger.onrender.com/';
 
-  const passwordInput = document.createElement('input');
-  passwordInput.type = 'password';
-  passwordInput.id = 'password-input';
-  passwordInput.placeholder = 'Enter your password...';
-  passwordInput.style = 'font-size: 2rem; padding: 1rem;';
-  document.body.appendChild(passwordInput);
+      function createIframe() {
+        const iframe = document.createElement('iframe');
+        iframe.src = iframeSrc;
+        iframe.style = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 9999;';
+        document.body.appendChild(iframe);
 
-  const submitButton = document.createElement('button');
-  submitButton.type = 'button';
-  submitButton.textContent = 'Submit';
-  submitButton.style = 'font-size: 2rem; padding: 1rem;';
-  document.body.appendChild(submitButton);
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.style = 'position: absolute; top: 0; left: 0; font-size: 2rem; padding: 1rem;';
+        document.body.appendChild(removeButton);
 
-  submitButton.addEventListener('click', function() {
-    const passwordValue = document.getElementById('password-input').value;
-    if (passwordValue === password) {
-      createIframe();
-    } else {
-      alert('Incorrect password. Please try again.');
-    }
-  });
-</script>
+        removeButton.addEventListener('click', removeIframe);
+      }
+
+      function removeIframe() {
+        const iframe = document.querySelector('iframe');
+        if (iframe) {
+          iframe.remove();
+
+          const removeButton = document.querySelector('button');
+          if (removeButton) {
+            removeButton.remove();
+          }
+        }
+      }
+
+      const passwordInput = document.createElement('input');
+      passwordInput.type = 'password';
+      passwordInput.id = 'password-input';
+      passwordInput.placeholder = 'Enter your password...';
+      passwordInput.style = 'font-size: 2rem; padding: 1rem;';
+      document.body.appendChild(passwordInput);
+
+      const submitButton = document.createElement('button');
+      submitButton.type = 'button';
+      submitButton.textContent = 'Submit';
+      submitButton.style = 'font-size: 2rem; padding: 1rem;';
+      document.body.appendChild(submitButton);
+
+      submitButton.addEventListener('click', function() {
+        const passwordValue = document.getElementById('password-input').value;
+        if (passwordValue === password) {
+          createIframe();
+
+          const blockedScreen = document.querySelector('.blocked-screen');
+          if (blockedScreen) {
+            blockedScreen.remove();
+          }
+        } else {
+          alert('Incorrect password. Please try again.');
+        }
+      });
+    </script>
+  </body>
+</html>
 
