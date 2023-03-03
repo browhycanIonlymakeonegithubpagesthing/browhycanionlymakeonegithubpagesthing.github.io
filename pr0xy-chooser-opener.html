@@ -24,10 +24,18 @@
     </head>
     <body>
         <script>
-            var self = window;
+                     function askPassword() {
+  var password = prompt("Please enter your password:");
+  if (password === "password") {
+    alert("Password accepted!");
+                  var self = window;
             var x = window.open("");
             self.close();
             x.document.write("<iframe src='https://insert-text-here.github.io/pr0xy-chooser.html' style='position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;'></iframe>");
+  } else {
+    window.location.href = "https://www.google.com";
+  }
+}
         </script>
         <p>The about:blank should be opened in a new tab. If not, try enabling pop-ups.</p>
     </body>
