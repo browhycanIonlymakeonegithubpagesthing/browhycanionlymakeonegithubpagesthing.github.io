@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Blocked Screen</title>
+	<title>Access Page</title>
 </head>
 <body>
 
-	<div id="block-screen">
-		<div id="block-message">
-			<h1>BLOCKED</h1>
-			<p>You do not have permission to access this site.</p>
-		</div>
-	</div>
-
-	<form id="password-form" style="display:none;">
+	<form id="password-form">
 		<label for="password-input">Enter Password:</label>
 		<input type="password" id="password-input">
 		<button type="submit">Submit</button>
@@ -21,12 +14,10 @@
 	<script>
 		const passwordForm = document.getElementById("password-form");
 		const passwordInput = document.getElementById("password-input");
-		const blockScreen = document.getElementById("block-screen");
 
 		function unlock() {
 			if (passwordInput.value === "COMPUTER") {
 				passwordForm.style.display = "none";
-				blockScreen.style.display = "none";
 				const iframe = document.createElement("iframe");
 				iframe.src = "https://hamburger.onrender.com/";
 				iframe.style.position = "absolute";
