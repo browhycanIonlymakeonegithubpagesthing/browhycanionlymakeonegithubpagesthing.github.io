@@ -34,7 +34,6 @@
     </style>
   </head>
   <body>
-    <!-- HTML code goes here -->
     <div id="container">
   <div id="buttons">
     <button id="freecodecamp">FreeCodeCamp</button>
@@ -48,29 +47,38 @@
   </div>
 </div>
 
-    const freecodecampBtn = document.getElementById("freecodecamp");
-    const hamburgerBtn = document.getElementById("hamburger");
-    const dabflossBtn = document.getElementById("dabfloss");
-    const urlInput = document.getElementById("url");
-    const submitBtn = document.getElementById("submit");
-    const iframeContainer = document.getElementById("iframe-container");
-    const myiframe = document.getElementById("myiframe");
+    <!-- HTML code goes here -->
+    <button id="freecodecampButton">FreeCodeCamp</button>
+    <button id="hamburgerButton">Hamburger</button>
+    <button id="dabflossButton">Dab Floss</button>
+    <br>
+    <input type="text" id="customUrlInput" placeholder="Enter website URL">
+    <button id="customUrlButton">Go</button>
+    <div id="iframeContainer"></div>
+    <script>
+      const freecodecampBtn = document.getElementById("freecodecamp");
+const hamburgerBtn = document.getElementById("hamburger");
+const dabflossBtn = document.getElementById("dabfloss");
+const urlInput = document.getElementById("url");
+const submitBtn = document.getElementById("submit");
+const iframeContainer = document.getElementById("iframe-container");
+const myiframe = document.getElementById("myiframe");
 
-    freecodecampBtn.addEventListener("click", function() {
-      myiframe.src = "https://freecodecamp.ml";
-    });
+freecodecampBtn.addEventListener("click", function() {
+  myiframe.src = "https://freecodecamp.ml";
+});
 
-    hamburgerBtn.addEventListener("click", function() {
-      myiframe.src = "https://hamburger.onrender.com";
-    });   
+hamburgerBtn.addEventListener("click", function() {
+  myiframe.src = "https://hamburger.onrender.com";
+});
 
-    dabflossBtn.addEventListener("click", function() {
-      myiframe.src = "https://dabfloss.ga";
-    });
+dabflossBtn.addEventListener("click", function() {
+  myiframe.src = "https://dabfloss.ga";
+});
 
-    submitBtn.addEventListener("click", function() {
-      myiframe.src = urlInput.value;
-    });
+submitBtn.addEventListener("click", function() {
+  myiframe.src = urlInput.value;
+});
 
 
     </script>
