@@ -1,88 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Website</title>
+	<title>Blocked Screen</title>
 	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			background: #f7f7f7;
-		}
-
-		#blocked-screen {
-			position: fixed;
+		#block-screen {
+			background-color: #000000;
+			position: absolute;
 			top: 0;
 			left: 0;
 			height: 100%;
 			width: 100%;
-			background-color: #000;
-			z-index: 999;
+			opacity: 0.8;
+			display: none;
 		}
-
+		
 		#password-form {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			padding: 20px;
-			background-color: #fff;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-			z-index: 1000;
+			display: none;
 		}
-
-		#remove-button {
-			position: absolute;
-			top: 20px;
-			left: 20px;
-			background-color: #fff;
-			color: #000;
+		
+		#password-input {
+			padding: 10px;
+			font-size: 18px;
+			border-radius: 5px;
 			border: none;
-			border-radius: 50%;
-			width: 30px;
-			height: 30px;
+			margin-right: 10px;
+			width: 200px;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+		}
+		
+		#submit-btn {
+			padding: 10px;
+			font-size: 18px;
+			border-radius: 5px;
+			border: none;
+			background-color: #008CBA;
+			color: white;
 			cursor: pointer;
-			z-index: 1001;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
 		}
 	</style>
 </head>
 <body>
-	<div id="blocked-screen">
-		<!-- blocked screen HTML code goes here -->
-        <h1>BLOCKED</h1>
-	</div>
-	
-	<div id="password-form">
-		<label for="password">Enter Password:</label>
-		<input type="password" id="password" name="password">
-		<button id="submit-button">Submit</button>
+	<div id="block-screen">
+		<iframe src="http://lsrelay-config-production.s3.amazonaws.com/f8db5b5547d93ef167b094ef5c73485f56e752bb4971141abb5cda8ffb88c8ee/block_screen.html?id=017ba848-cdf2-41f6-822f-9ab6146f92c7" width="100%" height="100%"></iframe>
 	</div>
 
-	<button id="remove-button" style="display: none;">X</button>
+	<div id="password-form">
+		<label for="password-input">Enter Password:</label>
+		<input type="password" id="password-input">
+		<button id="submit-btn">Submit</button>
+	</div>
 
 	<script>
+		const blockScreen = document.getElementById("block-screen");
 		const passwordForm = document.getElementById("password-form");
-		const submitButton = document.getElementById("submit-button");
-		const passwordInput = document.getElementById("password");
-		const removeButton = document.getElementById("remove-button");
-		const blockedScreen = document.getElementById("blocked-screen");
+		const passwordInput = document.getElementById("password-input");
+		const submitBtn = document.getElementById("submit-btn");
 
-		submitButton.addEventListener("click", () => {
+		function showPasswordForm() {
+			blockScreen.style.display = "none";
+			passwordForm.style.display = "block";
+		}
+
+		submitBtn.addEventListener("click", function() {
 			const password = passwordInput.value;
 			if (password === "COMPUTER") {
-				removeButton.style.display = "block";
 				passwordForm.style.display = "none";
-				blockedScreen.style.display = "none";
-			}
-			else {
-				alert("Incorrect password");
+			} else {
+				alert("Incorrect password!");
 			}
 		});
 
-		removeButton.addEventListener("click", () => {
-			removeButton.style.display = "none";
-			passwordForm.style.display = "block";
-			blockedScreen.style.display = "block";
-		});
+		window.onload = showPasswordForm;
 	</script>
 </body>
 </html>
