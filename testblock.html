@@ -1,42 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Website Iframer</title>
+    <title>Website Iframe Demo</title>
+    <style>
+      #container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: #ccc;
+}
+
+#iframe-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#myiframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+      /* CSS code goes here */
+    </style>
   </head>
   <body>
-    <div>
-      <label for="website-input">Enter a website URL to iframe:</label>
-      <input id="website-input" type="text" placeholder="https://www.example.com" />
-      <button id="load-website-button">Load Website</button>
-    </div>
-    <div>
-      <button class="website-button" data-url="https://www.freecodecamp.ml">FreeCodeCamp</button>
-      <button class="website-button" data-url="https://hamburger.onrender.com">Hamburger</button>
-      <button class="website-button" data-url="https://dabfloss.ga">Dabfloss</button>
-    </div>
-    <div id="iframe-container"></div>
-    <script>
-      const websiteButtons = document.querySelectorAll('.website-button');
-      const websiteInput = document.getElementById('website-input');
-      const loadWebsiteButton = document.getElementById('load-website-button');
-      const iframeContainer = document.getElementById('iframe-container');
-      
-      function iframeWebsite(url) {
-        iframeContainer.innerHTML = `<iframe src="${url}" frameborder="0" style="width: 100%; height: 100%;"></iframe>`;
-      }
-      
-      websiteButtons.forEach(button => {
-        const url = button.dataset.url;
-        button.addEventListener('click', () => iframeWebsite(url));
-      });
-      
-      loadWebsiteButton.addEventListener('click', () => {
-        const url = websiteInput.value.trim();
-        if (url) {
-          iframeWebsite(url);
-        }
-      });
+    <!-- HTML code goes here -->
+    <div id="container">
+  <div id="buttons">
+    <button id="freecodecamp">FreeCodeCamp</button>
+    <button id="hamburger">Hamburger</button>
+    <button id="dabfloss">Dabfloss</button>
+    <input type="text" id="url" placeholder="Enter URL">
+    <button id="submit">Submit</button>
+  </div>
+  <div id="iframe-container">
+    <iframe id="myiframe"></iframe>
+  </div>
+</div>
+
+    const freecodecampBtn = document.getElementById("freecodecamp");
+    const hamburgerBtn = document.getElementById("hamburger");
+    const dabflossBtn = document.getElementById("dabfloss");
+    const urlInput = document.getElementById("url");
+    const submitBtn = document.getElementById("submit");
+    const iframeContainer = document.getElementById("iframe-container");
+    const myiframe = document.getElementById("myiframe");
+
+    freecodecampBtn.addEventListener("click", function() {
+      myiframe.src = "https://freecodecamp.ml";
+    });
+
+    hamburgerBtn.addEventListener("click", function() {
+      myiframe.src = "https://hamburger.onrender.com";
+    });   
+
+    dabflossBtn.addEventListener("click", function() {
+      myiframe.src = "https://dabfloss.ga";
+    });
+
+    submitBtn.addEventListener("click", function() {
+      myiframe.src = urlInput.value;
+    });
+
+
     </script>
   </body>
 </html>
