@@ -1,102 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Iframe Button</title>
+	<title>Website Iframer</title>
 	<style>
 		body {
 			margin: 0;
 			padding: 0;
+			overflow: hidden;
 		}
+
 		iframe {
 			position: absolute;
-			top: 50px;
+			top: 40px;
 			left: 0;
+			bottom: 0;
+			right: 0;
 			width: 100%;
-			height: calc(100% - 50px);
+			height: 100%;
 			border: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			z-index: 999;
 		}
-		.button-container {
+
+		button {
 			position: fixed;
 			top: 0;
-			left: 0;
-			right: 0;
-			height: 50px;
-			background-color: #f2f2f2;
-			z-index: 1;
-		}
-		.button {
-			display: inline-block;
 			padding: 10px;
-			margin: 10px;
-			background-color: #4CAF50;
-			color: white;
-			font-size: 16px;
+			background-color: #333;
+			color: #fff;
 			border: none;
-			border-radius: 5px;
 			cursor: pointer;
+			z-index: 1000;
 		}
-		#url-input {
-			display: inline-block;
+
+		#website-input {
 			padding: 10px;
-			margin: 10px;
-			width: 300px;
 			font-size: 16px;
 			border: none;
 			border-radius: 5px;
-			box-sizing: border-box;
-			outline: none;
+			margin-right: 10px;
+		}
+
+		#submit-btn {
+			padding: 10px;
+			font-size: 16px;
+			border: none;
+			border-radius: 5px;
+			background-color: #333;
+			color: #fff;
+			cursor: pointer;
 		}
 	</style>
 </head>
 <body>
-	<div class="button-container">
-		<button class="button" id="fcc-button">FreeCodeCamp</button>
-		<button class="button" id="hamburger-button">Hamburger</button>
-		<button class="button" id="dabfloss-button">Dab Floss</button>
-		<button class="button" id="custom-button">Custom URL</button>
-		<input type="text" id="url-input" placeholder="Enter URL...">
-	</div>
+	<button id="hamburger-btn">Hamburger</button>
+	<button id="fcc-btn">FreeCodeCamp</button>
+	<button id="dabfloss-btn">DabFloss</button>
+	<button id="usw1-btn">USW1</button>
+	<input type="text" id="website-input" placeholder="Enter website URL">
+	<button id="submit-btn">Submit</button>
+
 	<script>
-		const fccButton = document.getElementById('fcc-button');
-		const hamburgerButton = document.getElementById('hamburger-button');
-		const dabflossButton = document.getElementById('dabfloss-button');
-		const customButton = document.getElementById('custom-button');
-		const urlInput = document.getElementById('url-input');
-		const iframe = document.createElement('iframe');
-		
-		iframe.style.display = 'none';
-		document.body.appendChild(iframe);
+		const hamburgerBtn = document.getElementById('hamburger-btn');
+		const fccBtn = document.getElementById('fcc-btn');
+		const dabflossBtn = document.getElementById('dabfloss-btn');
+		const usw1Btn = document.getElementById('usw1-btn');
+		const websiteInput = document.getElementById('website-input');
+		const submitBtn = document.getElementById('submit-btn');
 
-		function hideIframe() {
-			iframe.style.display = 'none';
+		hamburgerBtn.addEventListener('click', () => {
+			iframeWebsite('https://hamburger.onrender.com/');
+		});
+
+		fccBtn.addEventListener('click', () => {
+			iframeWebsite('https://freecodecamp.ml/');
+		});
+
+		dabflossBtn.addEventListener('click', () => {
+			iframeWebsite('https://dabfloss.ga/');
+		});
+
+		usw1Btn.addEventListener('click', () => {
+			iframeWebsite('https://usw1.onrender.com/');
+		});
+
+		submitBtn.addEventListener('click', () => {
+			iframeWebsite(websiteInput.value);
+		});
+
+		function iframeWebsite(url) {
+			const iframe = document.createElement('iframe');
+			iframe.src = url;
+			document.body.appendChild(iframe);
 		}
-
-		fccButton.addEventListener('click', function() {
-			iframe.style.display = 'block';
-			iframe.src = 'https://freecodecamp.ml/';
-		});
-
-		hamburgerButton.addEventListener('click', function() {
-			iframe.style.display = 'block';
-			iframe.src = 'https://hamburger.onrender.com/';
-		});
-
-		dabflossButton.addEventListener('click', function() {
-			iframe.style.display = 'block';
-			iframe.src = 'https://dabfloss.ga/';
-		});
-
-		customButton.addEventListener('click', function() {
-			iframe.style.display = 'block';
-			iframe.src = urlInput.value;
-		});
-
-		window.addEventListener('click', function(event) {
-			if (event.target === iframe) {
-				event.preventDefault();
-				hideIframe();
-			}
-		});
 	</script>
 </body>
 </html>
