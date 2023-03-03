@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Load websites in an iframe</title>
-</head>
-<body>
-
-	<button onclick="loadIframe('https://freecodecamp.ml')">Load freecodecamp.ml</button>
-	<button onclick="loadIframe('https://hamburger.onrender.com')">Load hamburger.onrender.com</button>
-	<button onclick="loadIframe('https://dabfloss.ga')">Load dabfloss.ga</button>
-
-	<div id="iframeContainer"></div>
-
-	<script>
-		function loadIframe(src) {
-			const iframe = document.createElement("iframe");
-			iframe.src = src;
-			iframe.style.width = "100%";
-			iframe.style.height = "100%";
-			document.getElementById("iframeContainer").innerHTML = "";
-			document.getElementById("iframeContainer").appendChild(iframe);
-		}
-	</script>
-
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Website Iframer</title>
+  </head>
+  <body>
+    <div>
+      <label for="website-input">Enter a website URL to iframe:</label>
+      <input id="website-input" type="text" placeholder="https://www.example.com" />
+      <button id="load-website-button">Load Website</button>
+    </div>
+    <div>
+      <button class="website-button" data-url="https://www.freecodecamp.ml">FreeCodeCamp</button>
+      <button class="website-button" data-url="https://hamburger.onrender.com">Hamburger</button>
+      <button class="website-button" data-url="https://dabfloss.ga">Dabfloss</button>
+    </div>
+    <div id="iframe-container"></div>
+    <script>
+      const websiteButtons = document.querySelectorAll('.website-button');
+      const websiteInput = document.getElementById('website-input');
+      const loadWebsiteButton = document.getElementById('load-website-button');
+      const iframeContainer = document.getElementById('iframe-container');
+      
+      function iframeWebsite(url) {
+        iframeContainer.innerHTML = `<iframe src="${url}" frameborder="0" style="width: 100%; height: 100%;"></iframe>`;
+      }
+      
+      websiteButtons.forEach(button => {
+        const url = button.dataset.url;
+        button.addEventListener('click', () => iframeWebsite(url));
+      });
+      
+      loadWebsiteButton.addEventListener('click', () => {
+        const url = websiteInput.value.trim();
+        if (url) {
+          iframeWebsite(url);
+        }
+      });
+    </script>
+  </body>
 </html>
