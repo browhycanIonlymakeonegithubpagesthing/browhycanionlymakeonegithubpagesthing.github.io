@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <title>Blocked</title>
+            <script>
+         function askPassword() {
+  var password = prompt("Please enter your password:");
+  if (password === "password") {
+    alert("Password accepted!");
+  } else {
+    window.location.href = "https://www.google.com";
+  }
+}
+            askPassword()
+        </script>
     <style>
       * {
         margin: 0;
