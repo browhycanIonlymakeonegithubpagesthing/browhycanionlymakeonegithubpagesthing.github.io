@@ -1,71 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Website Iframe Demo</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-      #menu {
-        background-color: #333;
-        position: fixed;
-        width: 100%;
-        height: 50px;
-        top: 0;
-        left: 0;
-        z-index: 1;
-      }
-      #menu button {
-        background-color: #333;
-        border: none;
-        color: white;
-        font-size: 16px;
-        padding: 10px;
-        cursor: pointer;
-      }
-      #menu button:hover {
-        background-color: #555;
-      }
-      #iframeContainer {
-        position: absolute;
-        top: 50px;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: calc(100% - 50px);
-      }
-      #websiteInput {
-        margin: 10px;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-      }
-      #websiteInput:focus {
-        outline: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="menu">
-      <button onclick="loadWebsite('https://freecodecamp.ml')">FreeCodeCamp</button>
-      <button onclick="loadWebsite('https://hamburger.onrender.com')">Hamburger</button>
-      <button onclick="loadWebsite('https://dabfloss.ga')">DabFloss</button>
-      <button onclick="loadWebsite('https://usw1.onrender.com')">USW1</button>
-      <form onsubmit="loadWebsite(document.getElementById('websiteInput').value); return false;">
-        <input type="text" placeholder="Enter website URL" id="websiteInput">
-        <button type="submit">Load</button>
-      </form>
-    </div>
-    <div id="iframeContainer">
-      <iframe id="websiteFrame" src="" frameborder="0"></iframe>
-    </div>
-    <script>
-      function loadWebsite(url) {
-        document.getElementById('websiteFrame').src = url;
-      }
-    </script>
-  </body>
+<head>
+	<title>Iframe Button</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		iframe {
+			position: absolute;
+			top: 50px;
+			left: 0;
+			width: 100%;
+			height: calc(100% - 50px);
+			border: none;
+		}
+		.button-container {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 50px;
+			background-color: #f2f2f2;
+			z-index: 1;
+		}
+		.button {
+			display: inline-block;
+			padding: 10px;
+			margin: 10px;
+			background-color: #4CAF50;
+			color: white;
+			font-size: 16px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#url-input {
+			display: inline-block;
+			padding: 10px;
+			margin: 10px;
+			width: 300px;
+			font-size: 16px;
+			border: none;
+			border-radius: 5px;
+			box-sizing: border-box;
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="button-container">
+		<button class="button" id="fcc-button">FreeCodeCamp</button>
+		<button class="button" id="hamburger-button">Hamburger</button>
+		<button class="button" id="dabfloss-button">Dab Floss</button>
+		<button class="button" id="custom-button">Custom URL</button>
+		<input type="text" id="url-input" placeholder="Enter URL...">
+	</div>
+	<script>
+		const fccButton = document.getElementById('fcc-button');
+		const hamburgerButton = document.getElementById('hamburger-button');
+		const dabflossButton = document.getElementById('dabfloss-button');
+		const customButton = document.getElementById('custom-button');
+		const urlInput = document.getElementById('url-input');
+		const iframe = document.createElement('iframe');
+		
+		iframe.style.display = 'none';
+		document.body.appendChild(iframe);
+
+		function hideIframe() {
+			iframe.style.display = 'none';
+		}
+
+		fccButton.addEventListener('click', function() {
+			iframe.style.display = 'block';
+			iframe.src = 'https://freecodecamp.ml/';
+		});
+
+		hamburgerButton.addEventListener('click', function() {
+			iframe.style.display = 'block';
+			iframe.src = 'https://hamburger.onrender.com/';
+		});
+
+		dabflossButton.addEventListener('click', function() {
+			iframe.style.display = 'block';
+			iframe.src = 'https://dabfloss.ga/';
+		});
+
+		customButton.addEventListener('click', function() {
+			iframe.style.display = 'block';
+			iframe.src = urlInput.value;
+		});
+
+		window.addEventListener('click', function(event) {
+			if (event.target === iframe) {
+				event.preventDefault();
+				hideIframe();
+			}
+		});
+	</script>
+</body>
 </html>
