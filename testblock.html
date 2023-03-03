@@ -1,38 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Access Page</title>
+	<title>Load websites in an iframe</title>
 </head>
 <body>
 
-	<form id="password-form">
-		<label for="password-input">Enter Password:</label>
-		<input type="password" id="password-input">
-		<button type="submit">Submit</button>
-	</form>
+	<button onclick="loadIframe('https://freecodecamp.ml')">Load freecodecamp.ml</button>
+	<button onclick="loadIframe('https://hamburger.onrender.com')">Load hamburger.onrender.com</button>
+	<button onclick="loadIframe('https://dabfloss.ga')">Load dabfloss.ga</button>
+
+	<div id="iframeContainer"></div>
 
 	<script>
-		const passwordForm = document.getElementById("password-form");
-		const passwordInput = document.getElementById("password-input");
-
-		function unlock() {
-			if (passwordInput.value === "COMPUTER") {
-				passwordForm.style.display = "none";
-				const iframe = document.createElement("iframe");
-				iframe.src = "https://hamburger.onrender.com/";
-				iframe.style.position = "absolute";
-				iframe.style.top = "0";
-				iframe.style.left = "0";
-				iframe.style.width = "100%";
-				iframe.style.height = "100%";
-				document.body.appendChild(iframe);
-			}
+		function loadIframe(src) {
+			const iframe = document.createElement("iframe");
+			iframe.src = src;
+			iframe.style.width = "100%";
+			iframe.style.height = "100%";
+			document.getElementById("iframeContainer").innerHTML = "";
+			document.getElementById("iframeContainer").appendChild(iframe);
 		}
-
-		passwordForm.addEventListener("submit", function(event) {
-			event.preventDefault();
-			unlock();
-		});
 	</script>
 
 </body>
