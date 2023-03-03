@@ -1,4 +1,17 @@
-        <input id="password-prompt" class="p-3 
-               w-full h-15 mr-3
-               input-bar" placeholder="Oops,">
-        <button onclick="checkPassword()" class="bg-secondary text-white rounded-lg p-3"></button>
+<label for="password-input">Enter your password:</label>
+<input type="password" id="password-input" name="password">
+<button id="password-button">Submit</button>
+
+<script>
+  const button = document.getElementById('password-button');
+  button.addEventListener('click', function() {
+    const password = document.getElementById('password-input').value;
+    if (password === 'COMPUTER') {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://hamburger.onrender.com/';
+      document.body.appendChild(iframe);
+    } else {
+      alert('Incorrect password. Please try again.');
+    }
+  });
+</script>
