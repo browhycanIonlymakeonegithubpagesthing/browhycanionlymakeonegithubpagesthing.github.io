@@ -30,7 +30,7 @@
       #menu iframe {
         display: none;
         width: 100%;
-        height: calc(100vh - 40px);
+        height: calc(100vh - 80px);
         border: none;
       }
       #menu.open {
@@ -44,17 +44,43 @@
       #menu.open iframe {
         display: block;
       }
+      #menu.open .back-button {
+        display: block;
+      }
+      .back-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 5px 10px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        display: none;
+      }
     </style>
   </head>
   <body>
     <div id="menu">
       <button onclick="toggleMenu()">Menu</button>
-      <iframe src="https://hamburger.onrender.com"></iframe>
+      <button class="back-button" onclick="goBack()">Back</button>
+      <iframe id="menu-iframe" src="https://hamburger.onrender.com"></iframe>
     </div>
     <script>
+      var menu = document.getElementById("menu");
+      var iframe = document.getElementById("menu-iframe");
+      var backButton = document.querySelector(".back-button");
+
       function toggleMenu() {
-        var menu = document.getElementById("menu");
         menu.classList.toggle("open");
+        backButton.style.display = "block";
+      }
+
+      function goBack() {
+        menu.classList.remove("open");
+        backButton.style.display = "none";
+        iframe.contentWindow.history.back();
       }
     </script>
   </body>
