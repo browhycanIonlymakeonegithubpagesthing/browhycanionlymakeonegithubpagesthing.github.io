@@ -80,9 +80,9 @@
 	<div id="menu">
 		<button id="exit-fullscreen-button">Exit Fullscreen</button>
 		<div id="iframe-container">
-            <iframe src="https://hamburger.onrender.com/" frameborder="0"></iframe>
+			<iframe src="https://www.wikipedia.org/" frameborder="0"></iframe>
             <div id="iframe-cover"></div>
-        </div>
+		</div>
 	</div>
 	<script>
 		const menu = document.getElementById('menu');
@@ -102,11 +102,4 @@
 		exitFullscreenButton.addEventListener('click', () => {
 			menu.classList.remove('fullscreen');
 			iframeContainer.style.display = 'none';
-            iframeCover.style.display = 'none';
-			exitFullscreenButton.style.display = 'none';
-			fullscreenButton.style.display = 'block';
-		});
 
-	</script>
-</body>
-</html>
