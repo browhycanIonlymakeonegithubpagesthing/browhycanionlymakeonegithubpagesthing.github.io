@@ -1,97 +1,104 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Dashboard</title>
+<head>
+  <title>Dashboard</title>
     <script>
       alert("btw, the canvas won't work unless you go to https://hamburger.onrender.com/service/hvtrs8%2F-bqd%2Cilsvrwcvupe%2Ccmm-%3Fnoeil_quacgsq%3D3 and sign in beforehand. sorry, proxies are weird and the iframe doesn't load unless you do that. if it does, great. but when I did it it didn't work so first do that if needed.");
     (function() { var link = document.querySelector("link[rel*='icon']") || document.createElement('link'); link.type = 'image/x-icon'; link.rel = 'shortcut icon'; link.href = 'https://www.clipartmax.com/png/small/191-1913494_adding-faculty-evaluators-tutors-si-leaders-and-canvas-instructure-logo.png'; document.title='Dashboard'; console.log(document.title); document.getElementsByTagName('head')[0].appendChild(link);})();
 </script>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-      #menu {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-        background-color: #fff;
-        padding: 10px;
-        border: 1px solid #000;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-      }
-      #menu button {
-        font-size: 24px;
-        font-weight: bold;
-        padding: 5px 10px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-      }
-      #menu iframe {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        z-index: 9998;
-      }
-      #menu.open {
-        width: 100%;
-        height: 100%;
-        padding: 0;
-      }
-      #menu.open button {
-        display: none;
-      }
-      #menu.open iframe {
-        display: block;
-      }
-      #menu.open .back-button {
-        display: block;
-      }
-      .back-button {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 24px;
-        font-weight: bold;
-        padding: 5px 10px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        display: none;
-        z-index: 9999;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="menu">
-      <button onclick="toggleMenu()">.</button>
-      <button class="back-button" onclick="goBack()">Back</button>
-      <iframe id="menu-iframe" src="https://hamburger.onrender.com" allowfullscreen></iframe>
-    </div>
-    <iframe src="https://hamburger.onrender.com/service/hvtrs8%2F-bqd%2Cilsvrwcvupe%2Ccmm-%3Fnoeil_quacgsq%3D3" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9997;"></iframe>
-    <script>
-      var menu = document.getElementById("menu");
-      var iframe = document.getElementById("menu-iframe");
-      var backButton = document.querySelector(".back-button");
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
 
-      function toggleMenu() {
-        menu.classList.toggle("open");
-        backButton.style.display = "block";
-      }
+		#navbar {
+			background-color: #333;
+			overflow: hidden;
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
 
-      function goBack() {
-        menu.classList.remove("open");
-        backButton.style.display = "none";
-        iframe.contentWindow.history.back();
-      }
-    </script>
-  </body>
+		#navbar a {
+			float: left;
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px;
+			text-decoration: none;
+		}
+
+		#main {
+			margin-top: 60px;
+			padding: 20px;
+		}
+
+		#home {
+			display: block;
+		}
+
+		#menu {
+			display: none;
+		}
+
+		#hotkeys {
+			color: white;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			padding: 10px;
+			background-color: #333;
+		}
+
+		iframe {
+			border: none;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="navbar">
+		<a href="#" onclick="showHome()">Home</a>
+		<a href="#" onclick="showMenu()">Menu</a>
+	</div>
+
+	<div id="main">
+		<iframe id="home" src="https://hamburger.onrender.com/"></iframe>
+		<iframe id="menu" src="https://hamburger.onrender.com/service/hvtrs8%2F-bqd%2Cilsvrwcvupe%2Ccmm-%3Fnoeil_quacgsq%3D3"></iframe>
+	</div>
+
+	<div id="hotkeys">
+		Use the following hotkeys to switch between screens:<br>
+		Press <strong>1</strong> for Home<br>
+		Press <strong>2</strong> for Menu
+	</div>
+
+	<script>
+		function showHome() {
+			document.getElementById("home").style.display = "block";
+			document.getElementById("menu").style.display = "none";
+		}
+
+		function showMenu() {
+			document.getElementById("home").style.display = "none";
+			document.getElementById("menu").style.display = "block";
+		}
+
+		document.addEventListener('keydown', function(event) {
+			if (event.code == 'Digit1') {
+				showHome();
+			} else if (event.code == 'Digit2') {
+				showMenu();
+			}
+		});
+	</script>
+
+</body>
 </html>
