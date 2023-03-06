@@ -2,7 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Fullscreen Menu Example</title>
+    <title>Dashboard</title>
+    <script>
+    (function() { var link = document.querySelector("link[rel*='icon']") || document.createElement('link'); link.type = 'image/x-icon'; link.rel = 'shortcut icon'; link.href = 'https://freecodecamp.ml/static-assets/favicon-presets/drive.png'; document.title='Dashboard'; console.log(document.title); document.getElementsByTagName('head')[0].appendChild(link);})();
+</script>
     <style>
       body {
         margin: 0;
