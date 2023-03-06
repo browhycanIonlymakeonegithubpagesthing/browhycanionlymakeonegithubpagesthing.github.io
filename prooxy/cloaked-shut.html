@@ -81,6 +81,22 @@
 	</div>
 
 	<script>
+		const hotkeysScreen = document.getElementById("hotkeys");
+
+// Show the hotkeys screen when the user presses the "?" key
+document.addEventListener("keydown", (event) => {
+  if (event.key === "?") {
+    hotkeys.style.display = "block";
+  }
+});
+
+// Hide the hotkeys screen when the user clicks outside of the screen
+hotkeysScreen.addEventListener("click", (event) => {
+  if (event.target === hotkeys) {
+    hotkeys.style.display = "none";
+  }
+});
+
 		function showHome() {
 			document.getElementById("home").style.display = "block";
 			document.getElementById("menu").style.display = "none";
