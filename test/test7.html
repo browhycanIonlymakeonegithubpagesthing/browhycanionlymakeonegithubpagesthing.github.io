@@ -4,23 +4,15 @@
     <meta charset="utf-8" />
     <title>Dashboard</title>
     <script>
-      function gun() {
-        var gasbomb = prompt("Okay, so, we need to know what class you are in, so we can get the right cover for you.");
-        if (gasbomb === "ela") {
-         
-          var url="https://hamburger.onrender.com/service/hvtrs8%2F-smrcarp%2Ccmm-wglaooe";
-          alert("you have chosen sora as your cover.");
-      } else if (gasbomb === "spanish") {
-        
-          var url="https://hamburger.onrender.com/service/hvtrs8%2F-wuw%2Cfmroavite%2Ccmm-";
-          alert("you have chosen the spanish cover.");
-      } else {
-          var url="https://hamburger.onrender.com/service/hvtrs8%2F-bqd%2Cilsvrwcvupe%2Ccmm-%3Fnoeil_quacgsq%3D3";
-          alert("you have chosen the standard canvas cover.");
-  }
+let url;
+let input = prompt("Please type either 'spanish' or 'ela'");
+if (input === "spanish") {
+  url = "https://hamburger.onrender.com/service/hvtrs8%2F-wuw%2Cfmroavite%2Ccmm-";
+} else if (input === "ela") {
+  url = "https://hamburger.onrender.com/service/hvtrs8%2F-smrcarp%2Ccmm-wglaooe";
+} else {
+  url = "https://hamburger.onrender.com/service/hvtrs8%2F-bqd%2Cilsvrwcvupe%2Ccmm-%3Fnoeil_quacgsq%3D3?";
 }
-      }
-      gun()
 </script>
     <style>
       body {
