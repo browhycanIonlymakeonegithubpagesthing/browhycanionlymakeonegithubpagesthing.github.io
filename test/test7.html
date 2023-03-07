@@ -84,8 +84,10 @@ if (input === "spanish") {
       <iframe id="menu-iframe" src="https://insert-text-here.github.io/prooxy/pr0xy-chooser.html" allowfullscreen></iframe>
     </div>
     <script>
+      const loadIframe = (url) => {
+        menu.innerHTML = `<iframe src="${url}"></iframe>`;
+      };
       var menu = document.getElementById("menu");
-      menu.innerHTML = `<iframe src="${url}"></iframe>`;
       var iframe = document.getElementById("menu-iframe");
       var backButton = document.querySelector(".back-button");
       function toggleMenu() {
@@ -97,6 +99,7 @@ if (input === "spanish") {
         backButton.style.display = "none";
         iframe.contentWindow.history.back();
       }
+      loadIframe(url);
     </script>
   </body>
 </html>
