@@ -4,38 +4,39 @@
     <meta charset="utf-8" />
     <title>Dashboard</title>
     <script>
-let period = prompt("What school period is it?");
-
-if (period === "ela") {
-  const iframe = document.createElement("iframe");
+      let code = prompt("Enter the current class period(no caps): ");
+if (code === "ela") {
+  let iframe = document.createElement("iframe");
   iframe.src = "https://hamburger.onrender.com/service/hvtrs8%2F-smrcarp%2Ccmm-wglaooe";
   iframe.style.position = "fixed";
   iframe.style.top = "0";
   iframe.style.left = "0";
   iframe.style.width = "100%";
   iframe.style.height = "100%";
+  iframe.style.border = "none";
   document.body.appendChild(iframe);
-  alert("you have chosen sora.");
-} else if (period === "spanish") {
-  const iframe = document.createElement("iframe");
+}
+else if (code === "spanish") {
+  let iframe = document.createElement("iframe");
   iframe.src = "https://hamburger.onrender.com/service/hvtrs8%2F-wuw%2Cfmroavite%2Ccmm-";
   iframe.style.position = "fixed";
   iframe.style.top = "0";
   iframe.style.left = "0";
   iframe.style.width = "100%";
   iframe.style.height = "100%";
+  iframe.style.border = "none";
   document.body.appendChild(iframe);
-  alert("you have chosen formative.");
-} else {
-  const iframe = document.createElement("iframe");
+}
+else {
+  let iframe = document.createElement("iframe");
   iframe.src = "https://hamburger.onrender.com/service/hvtrs8%2F-bqd%2Cilsvrwcvupe%2Ccmm-%3Fnoeil_quacgsq%3D3?";
   iframe.style.position = "fixed";
   iframe.style.top = "0";
   iframe.style.left = "0";
   iframe.style.width = "100%";
   iframe.style.height = "100%";
+  iframe.style.border = "none";
   document.body.appendChild(iframe);
-  alert("you have chosen canvas.");
 }
 </script>
     <style>
