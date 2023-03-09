@@ -2,20 +2,44 @@
 <html>
 <head>
 	<title>Hotkeys</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		iframe {
+			width: 100vw;
+			height: 50vh;
+			border: none;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+	</style>
 </head>
 <body>
-	<iframe id="homeFrame" src="https://insert-text-here.github.io/prooxy/pr0xy-chooser.html" width="100%" height="90%"></iframe>
-	<iframe id="menuFrame" src="https://hamburger.onrender.com" width="0" height="0"></iframe>
+	<iframe id="homeFrame" src="https://bing.com"></iframe>
+	<iframe id="menuFrame" src="https://hamburger.onrender.com"></iframe>
 
-	<script type="text/javascript">
-		document.addEventListener("keydown", event => {
-			if (event.isComposing || event.keyCode === 229) {
-				return;
-			}
-			if (event.key === "h") {
-				homeFrame.focus();
-			} else if (event.key === "m") {
+	<script>
+		document.addEventListener('keydown', event => {
+			if (event.ctrlKey && event.code === 'KeyM') {
+				event.preventDefault();
+				document.activeElement.blur();
 				menuFrame.focus();
+			} else if (event.ctrlKey && event.code === 'KeyH') {
+				event.preventDefault();
+				document.activeElement.blur();
+				homeFrame.focus();
 			}
 		});
 	</script>
