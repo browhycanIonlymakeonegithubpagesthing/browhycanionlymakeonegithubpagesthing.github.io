@@ -31,15 +31,19 @@
 	<iframe id="menuFrame" src="https://hamburger.onrender.com"></iframe>
 
 	<script>
+		var menu = document.getElementById("menuFrame");
+		      function toggleMenu() {
+        menu.classList.toggle("open");
+      }
+      function goBack() {
+        menu.classList.remove("open");
+        menu.contentWindow.history.back();
+      }
 		document.addEventListener('keydown', event => {
 			if (event.ctrlKey && event.code === 'KeyM') {
-				event.preventDefault();
-				document.activeElement.blur();
-				menuFrame.focus();
+				toggleMenu()
 			} else if (event.ctrlKey && event.code === 'KeyH') {
-				event.preventDefault();
-				document.activeElement.blur();
-				homeFrame.focus();
+				goBack()
 			}
 		});
 	</script>
