@@ -2,9 +2,7 @@
 how are you doing?
 good?
 alright cool
-Credit goes to Crazygird and BlueHalooo for index.html, the openers, and the crasher.
+Credit goes to Crazygird and BlueHalooo for old index.html, the openers, and the crasher.
 thanks for everything i guess
 BY THE WAY
-## CLICK ON THE RIGHT HAND SIDE MINIBUTTON (really small, you can see it) AND YOU CAN ACCESS THE ACTUAL PAGE
-that was so people can't just log on and see the thing I was doin but it probably won't work
-###### CHATGPT IS CRACKED, WROTE THE INDEX.HTML -Insert-Text-Here
+###### CHATGPT IS CRACKED, WROTE THE INDEX.HTML AND THE Pr()xy-Insert-Text-Here
