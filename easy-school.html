@@ -63,13 +63,13 @@
     </div>
 
     <script>
-        var password = prompt("Please enter your password:");
+        let password = prompt("Please enter your password:");
   if (password === "password") {
         window.location.href = "https://insert-text-here.github.io/easier-school.html";
   } else {
     alert("nvm you don't need one")
   }
-}
+
       const iframeContainer = document.querySelector('#iframe-container');
       const loadIframe = (url) => {
         iframeContainer.innerHTML = `<iframe src="${url}"></iframe>`;
