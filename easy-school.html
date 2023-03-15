@@ -16,6 +16,7 @@
         align-items: center;
         justify-content: center;
         height: 100vh;
+        background: linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #8B00FF);
       }
 
       #iframe-container {
@@ -63,12 +64,12 @@
     </div>
 
     <script>
-              let password = prompt("Please enter your password:");
-  if (password === "password") {
+      let password = prompt("Please enter your password:");
+      if (password === "password") {
         window.location.href = "https://insert-text-here.github.io/easier-school.html";
-  } else {
-    alert("nvm you don't need one")
-  }
+      } else {
+        alert("nvm you don't need one")
+      }
       const iframeContainer = document.querySelector('#iframe-container');
       const loadIframe = (url) => {
         iframeContainer.innerHTML = `<iframe src="${url}"></iframe>`;
