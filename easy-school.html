@@ -60,7 +60,6 @@
       <button class="button" onclick="loadIframe('https://elixir-phux.onrender.com/service/hvtrs8%2F-svufelttug.%60ecvgrvol.i10.mr%2Cuq%2FRXR2%5DLmgkn%5DSvufelt%2Caqpz%3FpeeelepaveQeqskolIf%3DVrwe')">Studentvue</button>
       <button class="button" onclick="loadIframe('https://elixir-phux.onrender.com/service/hvtrs8%2F-smrcarp%2Ccmm-wglaooe')">Sora</button>
       <button class="button" onclick="loadIframe('https://elixir-phux.onrender.com/service/hvtrs8%2F-arp%2Cfmroavite%2Ccmm-')">Formative</button>
-      <button class="button" onclick="helpgiven()">Need Help?</button>
     </div>
 
     <script>
@@ -70,12 +69,6 @@
   } else {
     alert("nvm you don't need one")
   }
-      function helpgiven {
-                    var self = window;
-            var x = window.open("");
-            self.close();
-            x.document.write("<iframe src='https://crazygird.github.io/html/projects/chatGPT/index.html' style='position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;'></iframe>");
-      }
       const iframeContainer = document.querySelector('#iframe-container');
       const loadIframe = (url) => {
         iframeContainer.innerHTML = `<iframe src="${url}"></iframe>`;
