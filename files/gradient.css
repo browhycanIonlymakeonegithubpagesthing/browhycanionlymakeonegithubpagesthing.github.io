@@ -10,19 +10,19 @@ body {
 		background-image: linear-gradient(to bottom, cyan, blue, grey);
 	}
 	20% {
-		background-image: linear-gradient(to bottom, blue, grey, white);
+		background-image: linear-gradient(to bottom, blue, grey, black);
 	}
 	40% {
-		background-image: linear-gradient(to bottom, grey, white, cyan);
+		background-image: linear-gradient(to bottom, grey, cyan, white);
 	}
 	60% {
-		background-image: linear-gradient(to bottom, white, cyan, blue);
+		background-image: linear-gradient(to bottom, white, blue, cyan);
 	}
 	80% {
 		background-image: linear-gradient(to bottom, cyan, blue, grey);
 	}
 	100% {
-		background-image: linear-gradient(to bottom, blue, grey, white);
+		background-image: linear-gradient(to bottom, blue, white, grey);
 	}
 }
 
