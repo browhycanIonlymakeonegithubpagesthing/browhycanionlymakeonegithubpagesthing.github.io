@@ -1,0 +1,16 @@
+body {
+	position: relative;
+	min-height: 100vh;
+	background-image: linear-gradient(to bottom, black, cyan, blue);
+	animation: gradient 10s ease-in-out infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-image: linear-gradient(to bottom, black, cyan, blue);
+	}
+	20% {
+		background-image: linear-gradient(to bottom, grey, blue, cyan);
+	}
+	40% {
+		background-image: linear-gradient(to
