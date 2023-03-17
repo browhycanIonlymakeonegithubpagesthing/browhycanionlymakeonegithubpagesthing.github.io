@@ -1,28 +1,28 @@
 body {
 	position: relative;
 	min-height: 100vh;
-	background-image: linear-gradient(to bottom, black, cyan, blue);
+	background-image: linear-gradient(to bottom, cyan, blue, grey);
 	animation: gradient 10s ease-in-out infinite;
 }
 
 @keyframes gradient {
 	0% {
-		background-image: linear-gradient(to bottom, black, cyan, blue);
+		background-image: linear-gradient(to bottom, cyan, blue, grey);
 	}
 	20% {
-		background-image: linear-gradient(to bottom, grey, blue, cyan);
+		background-image: linear-gradient(to bottom, blue, grey, white);
 	}
 	40% {
-		background-image: linear-gradient(to bottom, blue, cyan, white);
+		background-image: linear-gradient(to bottom, grey, white, cyan);
 	}
 	60% {
-		background-image: linear-gradient(to bottom, cyan, white, grey);
+		background-image: linear-gradient(to bottom, white, cyan, blue);
 	}
 	80% {
-		background-image: linear-gradient(to bottom, white, grey, black);
+		background-image: linear-gradient(to bottom, cyan, blue, grey);
 	}
 	100% {
-		background-image: linear-gradient(to bottom, black, cyan, blue);
+		background-image: linear-gradient(to bottom, blue, grey, white);
 	}
 }
 
@@ -46,10 +46,6 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	color: white;
-}
-
-header {
-	transition: color 0.5s ease;
 }
 
 button {
