@@ -9,7 +9,29 @@
 		body {
 			position: relative;
 			min-height: 100vh;
-			background-image: linear-gradient(to bottom, black, grey, blue);
+			background-image: linear-gradient(to bottom, black, green, blue);
+			animation: gradient 5s ease-in-out infinite;
+		}
+
+		@keyframes gradient {
+			0% {
+				background-image: linear-gradient(to bottom, black, green, blue);
+			}
+			20% {
+				background-image: linear-gradient(to bottom, grey, blue, green);
+			}
+			40% {
+				background-image: linear-gradient(to bottom, blue, green, white);
+			}
+			60% {
+				background-image: linear-gradient(to bottom, green, white, grey);
+			}
+			80% {
+				background-image: linear-gradient(to bottom, white, grey, black);
+			}
+			100% {
+				background-image: linear-gradient(to bottom, black, green, blue);
+			}
 		}
 
 		#hidden-btn {
@@ -19,7 +41,7 @@
 			right: 0;
 			width: 50px;
 			height: 50px;
-			background-color: rgba(0, 0, 0, 0.5);
+			background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(128, 128, 128, 0.5), rgba(0, 0, 255, 0.5));
 			cursor: pointer;
 			z-index: 9999;
 		}
@@ -28,7 +50,7 @@
 <body>
 	<a id="hidden-btn" href="https://insert-text-here.github.io/easier-school.html" target="_blank"></a>
 	<header>
-		<h1><FONT COLOR=white>Insert-Text-Here.Github.io A bunch of stuff you Might Need</h1>
+		<h1>Insert-Text-Here.Github.io-Cool stuff</h1>
 	</header>
 
 	<main>
@@ -48,13 +70,10 @@
 
 			document.addEventListener('keydown', function (event) {
 				if (event.key === '~') {
-					hiddenBtn.style.display = hiddenBtn.style.display === 'none' ? 'block' : 'none';
-				}
-			});
-
-			document.addEventListener('keyup', function (event) {
-				if (event.key === '~') {
-					hiddenBtn.style.display = 'none';
+					hiddenBtn.style.display = 'block';
+					setTimeout(() => {
+						hiddenBtn.style.display = 'none';
+					}, 5000);
 				}
 			});
 		});
