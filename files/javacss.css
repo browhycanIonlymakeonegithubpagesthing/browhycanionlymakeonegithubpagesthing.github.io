@@ -26,11 +26,14 @@ body {
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
+    flex-direction: column;
 }
-.message p {
+.message p, .message h2 {
     margin: 0;
 }
 pre {
     white-space: pre-wrap;
     word-wrap: break-word;
+    text-align: left;
+    overflow-wrap: break-word;
 }
