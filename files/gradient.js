@@ -7,3 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+const textList = [
+	"Insert Text Here",
+	"Javascript Is Cool",
+	"Go Touch Grass",
+	"outdoorschool",
+	"Crazygird=Gamign"
+];
+
+function changeText() {
+	const clickableText = document.getElementById("clickable-text");
+	const randomIndex = Math.floor(Math.random() * textList.length);
+	clickableText.textContent = textList[randomIndex];
+}
