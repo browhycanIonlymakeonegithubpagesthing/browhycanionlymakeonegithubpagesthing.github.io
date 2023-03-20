@@ -2,8 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(0deg, cyan 0%, white 20%, black 40%, white 60%, cyan 80%);
-  background-size: 100% 500%;
+  background: linear-gradient(0deg, blue 0%, cyan 16.67%, white 33.33%, black 50%, white 66.67%, cyan 83.33%);
+  background-size: 100% 600%;
   animation: gradient 10s linear infinite;
 }
 
@@ -12,7 +12,7 @@ body {
     background-position: 100% 0%;
   }
   100% {
-    background-position: 100% -400%;
+    background-position: 100% -500%;
   }
 }
 
