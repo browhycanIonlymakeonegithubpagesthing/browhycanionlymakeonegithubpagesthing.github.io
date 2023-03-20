@@ -8,8 +8,8 @@ function copyToClipboard(text) {
 }
 
 function handleCopyButtonClick(event) {
-    const preElement = event.target.closest('.message').querySelector('pre');
-    copyToClipboard(preElement.innerText);
+    const code = event.target.getAttribute('data-code');
+    copyToClipboard(code);
     alert('Javascript Copied!');
 }
 
