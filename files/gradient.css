@@ -2,9 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(0deg, blue 0%, cyan 20%, white 40%, black 60%, white 80%);
-  background-size: 100% 500%;
-  animation: gradient 10s linear infinite;
+  background: linear-gradient(0deg, blue 0%, blue 25%, cyan 25%, cyan 50%, white 50%, white 75%, black 75%, black 100%);
+  background-size: 100% 400%;
+  animation: gradient 20s linear infinite;
 }
 
 @keyframes gradient {
@@ -12,7 +12,7 @@ body {
     background-position: 100% 0%;
   }
   100% {
-    background-position: 100% -400%;
+    background-position: 100% -300%;
   }
 }
 
