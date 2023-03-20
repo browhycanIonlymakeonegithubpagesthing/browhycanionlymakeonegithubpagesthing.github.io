@@ -5,44 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hover Effect Screens</title>
     <link rel="stylesheet" href="https://insert-text-here.github.io/files/javacss.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const screens = document.querySelectorAll(".screen");
-            screens.forEach(screen => {
-                screen.addEventListener("mouseenter", function() {
-                    screen.querySelector(".message").style.opacity = "1";
-                    screen.querySelector(".message").style.zIndex = "1";
-                });
-                screen.addEventListener("mouseleave", function() {
-                    screen.querySelector(".message").style.opacity = "0";
-                    screen.querySelector(".message").style.zIndex = "0";
-                });
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="screen">
         <div class="message gradient">
             <h2>EXTENSION BLOCKER</h2>
-            <p>Put this into chrome webstore (how to get it: go to ublock, and spam esc while opening webstore)</p>
-            <p>Lightspeed:adkcpkpghahmbopkjchobieckeoaoeem</p>
-            <p>Classroom:kkbmdgjggcdajckdlbngdjonpchpaiea</p>
+            <p>Lightspeed: adkcpkpghahmbopkjchobieckeoaoeem</p>
+            <p>Classroom: kkbmdgjggcdajckdlbngdjonpchpaiea</p>
             <pre>javascript:let shim = false;var ids = prompt("extension ids (comma separated)").split(",");setInterval(()=>{ids.forEach((id)=> opener.chrome.developerPrivate.updateExtensionConfiguration({extensionId: id, fileAccess: shim}));shim = !shim;}, 145);</pre>
+            <button class="copy-button">Copy</button>
         </div>
     </div>
     <div class="screen">
         <div class="message gradient">
             <h2>TAB CLOAKER</h2>
-            <p>type in javascript: and paste in this code to cloak the tab. will not change tab itself, just the tab bar name and favicon.</p>
+            <p>Type in javascript: and paste in this code to cloak the tab. Will not change tab itself, just the tab bar name and favicon.</p>
             <pre>(function() { var link = document.querySelector("link[rel*='icon']") || document.createElement('link'); link.type = 'image/x-icon'; link.rel = 'shortcut icon'; link.href = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/1200px-Google_Drive_icon_%282020%29.svg.png'; document.title='Priority - Google Drive'; console.log(document.title); document.getElementsByTagName('head')[0].appendChild(link);})();</pre>
+            <button class="copy-button">Copy</button>
         </div>
     </div>
     <div class="screen">
         <div class="message gradient">
             <h2>EMBED ELIXIR (burger)</h2>
             <pre>javascript:if (document.body.contains(e)) { e.remove() } else { var e = document.createElement("iframe"); e.src = "https://hamburger.onrender.com"; e.style = "display: block; position: fixed; margin: auto; width: 90%; height: 90%; background-size: cover; z-index: 200000000000000; text-align: center; left: 5%; top: 5%;"; document.body.appendChild(e); }</pre>
+            <button class="copy-button">Copy</button>
         </div>
     </div>
+
+    <script src="https://insert-text-here.github.io/files/app.js"></script>
 </body>
 </html>
