@@ -36,4 +36,5 @@ pre {
     word-wrap: break-word;
     text-align: left;
     overflow-wrap: break-word;
+    max-width: 100%;
 }
