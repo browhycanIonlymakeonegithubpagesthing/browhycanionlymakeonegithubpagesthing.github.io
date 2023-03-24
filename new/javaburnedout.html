@@ -6,8 +6,26 @@
     <title>Cool Javascript Stuff</title>
     <link rel="stylesheet" href="https://insert-text-here.github.io/files/javacss.css">
     <link rel="stylesheet" href="https://insert-text-here.github.io/files/gradient.css">
+    <style>
+        .scrolling-text {
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            animation: scrolling 10s linear infinite;
+        }
+
+        @keyframes scrolling {
+            from {
+                left: 100%;
+            }
+            to {
+                left: -100%;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="screen scrolling-text">
     <div class="screen">
         <div class="message gradient">
             <h2>EXTENSION BLOCKER</h2>
@@ -42,7 +60,7 @@
 ">Copy code for ChatGPT</button>
         </div>
     </div>
-
+    </div>
     <script src="https://insert-text-here.github.io/files/app.js"></script>
 </body>
 </html>
