@@ -31,4 +31,3 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener('click', handleCopyButtonClick);
     });
 });
-(function() { var link = document.querySelector("link[rel*='icon']") || document.createElement('link'); link.type = 'image/x-icon'; link.rel = 'shortcut icon'; link.href = 'https://soraapp.com/assets/wishbone/10.19.3/assets/images/favicon-192.png'; document.title='Sora'; console.log(document.title); document.getElementsByTagName('head')[0].appendChild(link);})();
