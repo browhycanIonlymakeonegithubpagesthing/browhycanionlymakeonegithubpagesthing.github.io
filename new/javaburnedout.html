@@ -12,29 +12,32 @@
             padding: 0;
         }
 
-        .screen {
-            padding: 10px;
-        }
-
         .scrolling-text {
-            white-space: nowrap;
+            display: flex;
+            flex-direction: row;
             overflow: hidden;
             position: relative;
-            animation: scrolling 10s linear infinite;
+            animation: scrolling 30s linear infinite;
+        }
+
+        .scrolling-text .screen {
+            flex-shrink: 0;
+            padding: 10px;
         }
 
         @keyframes scrolling {
             from {
-                left: 100%;
+                transform: translateX(100%);
             }
             to {
-                left: -100%;
+                transform: translateX(-100%);
             }
         }
     </style>
 </head>
 <body>
-    <div class="screen scrolling-text">
+    <div class="scrolling-text">
+        <div class="screen">
         <div class="screen">
         <div class="message gradient">
             <h2>EXTENSION BLOCKER</h2>
@@ -69,6 +72,7 @@
 ">Copy code for ChatGPT</button>
         </div>
     </div>
+        </div>
     </div>
     <script src="https://insert-text-here.github.io/files/app.js"></script>
 </body>
