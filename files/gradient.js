@@ -4,23 +4,33 @@ const textList = [
   "Go Touch Grass",
   "outdoorschool",
   "Crazygird=Gamign",
-  "InsertTextHere>GamerGuy12>CrazyGird/Mide>BlueHalooo",
 ];
+
+const dadJokes = [
+  "what did the mathmatician say to his insurance company when he got into a car accident?",
+  "his car got totalled!",
+  "hahaha.....",
+];
+
+let dadJokeIndex = -1;
 
 function changeText() {
   const clickableText = document.getElementById("clickable-text");
-  const randomIndex = Math.floor(Math.random() * textList.length);
-  clickableText.textContent = textList[randomIndex];
 
-  // 5% chance to change the text to a dad joke
-  if (Math.random() < 0.05) {
-    const dadJokes = [
-      "what did the mathmatician say to his insurance company when he got into a car accident?",
-      "his car got totalled!",
-      "hahaha.....",
-    ];
-    const jokeIndex = Math.floor(Math.random() * dadJokes.length);
-    clickableText.textContent = dadJokes[jokeIndex];
+  // 5% chance to start displaying dad jokes
+  if (Math.random() < 0.05 && dadJokeIndex === -1) {
+    dadJokeIndex = 0;
+  }
+
+  if (dadJokeIndex >= 0 && dadJokeIndex < dadJokes.length) {
+    clickableText.textContent = dadJokes[dadJokeIndex];
+    dadJokeIndex++;
+    if (dadJokeIndex === dadJokes.length) {
+      dadJokeIndex = -1;
+    }
+  } else {
+    const randomIndex = Math.floor(Math.random() * textList.length);
+    clickableText.textContent = textList[randomIndex];
   }
 
   // 0.1% chance to start playing audio
