@@ -3,38 +3,39 @@ const textList = [
   "Javascript Is Cool",
   "Go Touch Grass",
   "outdoorschool",
-  "Crazygird=Gamign"
-  "InsertTextHere>GamerGuy12>Crazygird>BlueHalooo"
+  "Crazygird=Gamign",
+  "InsertTextHere>GamerGuy12>CrazyGird/Mide>BlueHalooo",
 ];
-
-const dadJokes = [
-  "what did the mathematician say to his insurance company when he got into a car accident?",
-  "his car got totalled!",
-  "hahaha....."
-];
-
-const audioList = [
-  "https://insert-text-here.github.io/files/doublekill.mp3",
-  "https://insert-text-here.github.io/files/gettrolled.mp3"
-];
-
-let dadJokeIndex = 0;
 
 function changeText() {
-  const random = Math.random();
-  if (random < 0.05 && dadJokeIndex < dadJokes.length) {
-    document.getElementById("clickable-text").innerHTML = dadJokes[dadJokeIndex];
-    dadJokeIndex++;
-  } else {
-    const index = Math.floor(Math.random() * textList.length);
-    document.getElementById("clickable-text").innerHTML = textList[index];
+  const clickableText = document.getElementById("clickable-text");
+  const randomIndex = Math.floor(Math.random() * textList.length);
+  clickableText.textContent = textList[randomIndex];
+
+  // 5% chance to change the text to a dad joke
+  if (Math.random() < 0.05) {
+    const dadJokes = [
+      "what did the mathmatician say to his insurance company when he got into a car accident?",
+      "his car got totalled!",
+      "hahaha.....",
+    ];
+    const jokeIndex = Math.floor(Math.random() * dadJokes.length);
+    clickableText.textContent = dadJokes[jokeIndex];
   }
 
-  if (random < 0.01) {
-    const audioIndex = Math.floor(Math.random() * audioList.length);
-    const audio = new Audio(audioList[audioIndex]);
+  // 0.1% chance to start playing audio
+  if (Math.random() < 0.001) {
+    const audioChoices = [
+      "https://insert-text-here.github.io/files/doublekill.mp3",
+      "https://insert-text-here.github.io/files/gettrolled.mp3",
+    ];
+    const audioIndex = Math.floor(Math.random() * audioChoices.length);
+    const audio = new Audio(audioChoices[audioIndex]);
     audio.play();
   }
 }
 
-document.getElementById("clickable-text").addEventListener("click", changeText);
+document.addEventListener("DOMContentLoaded", function () {
+  const clickableText = document.getElementById("clickable-text");
+  clickableText.addEventListener("click", changeText);
+});
