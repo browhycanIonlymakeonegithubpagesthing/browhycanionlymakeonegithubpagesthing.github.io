@@ -13,21 +13,17 @@ const dadJokes = [
 ];
 
 let dadJokeIndex = -1;
+let canChangeText = true;
 
 function changeText() {
+  if (!canChangeText) return;
+
   const clickableText = document.getElementById("clickable-text");
 
   // 5% chance to start displaying dad jokes
   if (Math.random() < 0.05 && dadJokeIndex === -1) {
     dadJokeIndex = 0;
-  }
-
-  if (dadJokeIndex >= 0 && dadJokeIndex < dadJokes.length) {
-    clickableText.textContent = dadJokes[dadJokeIndex];
-    dadJokeIndex++;
-    if (dadJokeIndex === dadJokes.length) {
-      dadJokeIndex = -1;
-    }
+    showDadJokes();
   } else {
     const randomIndex = Math.floor(Math.random() * textList.length);
     clickableText.textContent = textList[randomIndex];
@@ -42,6 +38,24 @@ function changeText() {
     const audioIndex = Math.floor(Math.random() * audioChoices.length);
     const audio = new Audio(audioChoices[audioIndex]);
     audio.play();
+  }
+}
+
+function showDadJokes() {
+  if (dadJokeIndex < 0 || dadJokeIndex >= dadJokes.length) return;
+
+  const clickableText = document.getElementById("clickable-text");
+  clickableText.textContent = dadJokes[dadJokeIndex];
+  dadJokeIndex++;
+
+  if (dadJokeIndex < dadJokes.length) {
+    canChangeText = false;
+    setTimeout(() => {
+      canChangeText = true;
+      showDadJokes();
+    }, 5000);
+  } else {
+    dadJokeIndex = -1;
   }
 }
 
