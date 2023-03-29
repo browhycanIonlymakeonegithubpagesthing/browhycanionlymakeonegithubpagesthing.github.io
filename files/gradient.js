@@ -4,6 +4,7 @@ const textList = [
   "Go Touch Grass",
   "outdoorschool",
   "Crazygird=Gamign"
+  "InsertTextHere>GamerGuy12>Crazygird>BlueHalooo"
 ];
 
 const dadJokes = [
