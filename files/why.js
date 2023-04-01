@@ -10,4 +10,4 @@ function cool() {
   audio.play();
 }
 
-setInterval(cool, 10);
+setInterval(cool, 1000);
