@@ -20,8 +20,8 @@ function changeText() {
 
   const clickableText = document.getElementById("clickable-text");
 
-  // 5% chance to start displaying dad jokes
-  if (Math.random() < 0.05 && dadJokeIndex === -1) {
+  // 1% chance to start displaying dad jokes
+  if (Math.random() < 0.01 && dadJokeIndex === -1) {
     dadJokeIndex = 0;
     showDadJokes();
   } else {
@@ -29,7 +29,7 @@ function changeText() {
     clickableText.textContent = textList[randomIndex];
   }
 
-  // 0.1% chance to start playing audio
+  // 5% chance to start playing audio
   if (Math.random() < 0.05) {
     const audioChoices = [
       "https://insert-text-here.github.io/files/doublekill.mp3",
