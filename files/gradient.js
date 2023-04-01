@@ -31,7 +31,6 @@ function changeText() {
 
   // 5% chance to start playing audio
   if (Math.random() < 0.05) {
-    alert("lbozo");
     const audioChoices = [
       "https://insert-text-here.github.io/files/doublekill.mp3",
       "https://insert-text-here.github.io/files/gettrolled.mp3",
