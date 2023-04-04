@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Tab System</title>
-<link rel="stylesheet" href="insert-text-here.github.io/files/ok.css">
+<style>
+body{margin:0;font-family:Arial,sans-serif}.container{position:relative}.tab{overflow:hidden;background-color:#f1f1f1;display:flex;justify-content:space-between;padding:5px;border:1px solid #ccc}.tab-left{display:flex}.tab button,.settings-btn{border:1px solid #ccc;border-radius:4px;outline:none;cursor:pointer}.tab button{background-color:#f1f1f1;padding:10px 14px;margin-right:10px;font-weight:500;font-size:14px;color:#444;transition:background-color .3s}.tab button:hover{background-color:#ddd}.tab button.active{background-color:#ccc}.settings-btn{background-color:transparent;border:none;padding:10px 12px}.settings-btn img{display:block}.tabcontent{display:none;padding:0;border:1px solid #ccc;border-top:none;position:absolute;top:46px;left:0;right:0;bottom:0;z-index:-1}.tabcontent iframe{width:100%;height:calc(100vh - 46px);border:none}.settings-menu{display:none;position:absolute;right:5px;top:46px;background-color:#f1f1f1;padding:20px;border:1px solid #ccc;z-index:1}.settings-item{display:flex;align-items:center;margin-bottom:10px}.settings-item label{flex:1}.settings-item input{flex:2;margin-left:10px}
+</style>
 </head>
 <body>
 <div class="container">
@@ -27,8 +29,55 @@
     <div class="settings-item">
       <label for="favicon-title">Favicon and Title:</label>
       <input type="text" id="favicon-title">
-    </div>  </div>
+    </div>
+  </div>
 </div>
-<script src="insert-text-here.github.io/files/ok.js"></script>
-</body>
+<script>
+  function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  var tab = document.getElementById(tabName);
+  tab.style.display = "block";
+  evt.currentTarget.className += " active";
+  var iframe = tab.querySelector("iframe");
+  if (!iframe.hasAttribute("src")) {
+    iframe.src = "https://agent-gamer-cool-thing.474652.workers.dev";
+  }
+}
+
+function newTab() {
+  var numTabs = document.getElementsByClassName("tablinks").length + 1;
+  if (numTabs > 12) return;
+  var tabButton = document.createElement("button");
+  tabButton.className = "tablinks";
+  tabButton.innerHTML = "Tab " + numTabs;
+  tabButton.onclick = function () {
+    openTab(event, "Tab" + numTabs);
+  };
+  var tabContent = document.createElement("div");
+  tabContent.id = "Tab" + numTabs;
+  tabContent.className = "tabcontent";
+  tabContent.innerHTML = '<iframe></iframe>';
+  var tabDiv = document.getElementsByClassName("tab-left")[0];
+  tabDiv.insertBefore(tabButton, tabDiv.lastElementChild);
+  document.body.appendChild(tabContent);
+}
+
+function openSettings() {
+  var settingsMenu = document.getElementById("settings-menu");
+  if (settingsMenu.style.display === "none") {
+    settingsMenu.style.display = "block";
+  } else {
+    settingsMenu.style.display = "none";
+  }
+}
+  </script>
+  </body>
 </html>
