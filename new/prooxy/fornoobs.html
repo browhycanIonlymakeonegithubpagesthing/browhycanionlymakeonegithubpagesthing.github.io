@@ -3,103 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Tab System</title>
-<style>
-.tab {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  display: flex;
-  justify-content: flex-start;
-  padding: 5px;
-}
-
-.tab button {
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  padding: 10px 14px;
-  margin-right: 10px;
-  font-weight: 500;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #444;
-  transition: background-color 0.3s;
-}
-
-.tab button:hover {
-  background-color: #ddd;
-}
-
-.tab button.active {
-  background-color: #ccc;
-}
-
-.tabcontent {
-  display: none;
-  padding: 0;
-  border: 1px solid #ccc;
-  border-top: none;
-  position: absolute;
-  top: 80px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
-.tabcontent iframe {
-  width: 100%;
-  height: calc(100vh - 80px);
-  border: none;
-}
-
-.container {
-  position: relative;
-}
-</style>
-<script>
-function openTab(evt, tabName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
-  var iframe = document.getElementById(tabName).querySelector("iframe");
-  if (!iframe.hasAttribute("src")) {
-    iframe.src = "https://agent-gamer-cool-thing.474652.workers.dev";
-  }
-}
-
-function newTab() {
-  var numTabs = document.getElementsByClassName("tablinks").length + 1;
-  var tabButton = document.createElement("button");
-  tabButton.className = "tablinks";
-  tabButton.innerHTML = "Tab " + numTabs;
-  tabButton.onclick = function () {
-    openTab(event, "Tab" + numTabs);
-  };
-  var tabContent = document.createElement("div");
-  tabContent.id = "Tab" + numTabs;
-  tabContent.className = "tabcontent";
-  tabContent.innerHTML = "<iframe></iframe>";
-  var tabDiv = document.getElementsByClassName("tab")[0];
-  tabDiv.insertBefore(tabButton, tabDiv.lastElementChild);
-  document.body.appendChild(tabContent);
-}
-</script>
+<link rel="stylesheet" href="insert-text-here.github.io/files/ok.css">
 </head>
 <body>
 <div class="container">
   <div class="tab">
-    <button onclick="newTab()">New Tab</button>
+    <div class="tab-left">
+      <button onclick="newTab()">New Tab</button>
+    </div>
+    <button class="settings-btn" onclick="openSettings()">
+      <img src="https://cdn.iconscout.com/icon/free/png-256/apple-settings-1-493162.png?f=webp&w=256">
+    </button>
+  </div>
+  <div id="settings-menu" class="settings-menu">
+    <div class="settings-item">
+      <label for="hotbar-color">Hotbar Color:</label>
+      <input type="color" id="hotbar-color">
+    </div>
+    <div class="settings-item">
+      <label for="proxy-url">Proxy URL:</label>
+      <input type="text" id="proxy-url">
+    </div>
+    <div class="settings-item">
+      <label for="favicon-title">Favicon and Title:</label>
+      <input type="text" id="favicon-title">
+    </div>
   </div>
 </div>
+<script src="https://insert-text-here.github.io/files/ok.js"></script>
 </body>
 </html>
