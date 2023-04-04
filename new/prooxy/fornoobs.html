@@ -56,7 +56,6 @@ body{margin:0;font-family:Arial,sans-serif}.container{position:relative}.tab{ove
     iframe.src = "https://agent-gamer-cool-thing.474652.workers.dev";
   }
 }
-
 function newTab() {
   var proxyUrlInput = document.getElementById('proxy-url');
   var startingUrl = proxyUrlInput.value;
@@ -86,7 +85,28 @@ function newTab() {
     iframe.src = 'https://agent-gamer-cool-thing.474652.workers.dev/'; // Default URL if no proxy-url is provided
   }
 }
+function openSettings() {
+  var settingsMenu = document.getElementById("settings-menu");
+  if (settingsMenu.style.display === "none") {
+    settingsMenu.style.display = "block";
+  } else {
+    settingsMenu.style.display = "none";
+  }
+}
+  function updateFaviconTitle() {
+  var faviconTitleInput = document.getElementById('favicon-title');
+  var newTitle = faviconTitleInput.value;
+  document.title = newTitle;
+}
+  function updateFavicon() {
+  var faviconUrlInput = document.getElementById('favicon-url');
+  var faviconUrl = faviconUrlInput.value;
+  var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+  link.type = 'image/x-icon';
+  link.rel = 'shortcut icon';
+  link.href = faviconUrl;
+  document.getElementsByTagName('head')[0].appendChild(link);
+}
   </script>
   </body>
 </html>
-
