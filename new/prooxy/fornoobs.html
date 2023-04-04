@@ -28,8 +28,12 @@ body{margin:0;font-family:Arial,sans-serif}.container{position:relative}.tab{ove
       <input type="text" id="proxy-url">
     </div>
     <div class="settings-item">
-      <label for="favicon-title">Favicon and Title:</label>
+      <label for="favicon-title">Website Title:</label>
 <input type="text" id="favicon-title" oninput="updateFaviconTitle()">
+        <div class="settings-item">
+    <label for="favicon-url">Favicon URL:</label>
+    <input type="text" id="favicon-url" oninput="updateFavicon()">
+  </div>
     </div>
   </div>
 </div>
@@ -83,6 +87,15 @@ function openSettings() {
   var faviconTitleInput = document.getElementById('favicon-title');
   var newTitle = faviconTitleInput.value;
   document.title = newTitle;
+}
+  function updateFavicon() {
+  var faviconUrlInput = document.getElementById('favicon-url');
+  var faviconUrl = faviconUrlInput.value;
+  var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+  link.type = 'image/x-icon';
+  link.rel = 'shortcut icon';
+  link.href = faviconUrl;
+  document.getElementsByTagName('head')[0].appendChild(link);
 }
   </script>
   </body>
