@@ -147,7 +147,7 @@ document.getElementById("proxy-url").addEventListener("input", function (event) 
   var faviconTitleInput = document.getElementById('favicon-title');
   var newTitle = faviconTitleInput.value;
   document.title = newTitle;
-}
+};
   function updateFavicon() {
   var faviconUrlInput = document.getElementById('favicon-url');
   var faviconUrl = faviconUrlInput.value;
@@ -156,7 +156,7 @@ document.getElementById("proxy-url").addEventListener("input", function (event) 
   link.rel = 'shortcut icon';
   link.href = faviconUrl;
   document.getElementsByTagName('head')[0].appendChild(link);
-  }
+  };
   </script>
   </head>
 <body>
@@ -177,7 +177,7 @@ document.getElementById("proxy-url").addEventListener("input", function (event) 
   </div>
   <div class="settings-item">
     <label for="favicon-title">Website Title:</label>
-    <input type="text" id="favicon-title" oninput="updateFaviconTitle()>
+    <input type="text" id="favicon-title" oninput="updateFaviconTitle()">
   </div>
   <div class="settings-item">
     <label for="favicon-title">Favicon (type url):</label>
