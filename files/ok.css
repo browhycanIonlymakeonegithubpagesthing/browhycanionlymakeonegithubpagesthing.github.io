@@ -3,6 +3,10 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.container {
+  position: relative;
+}
+
 .tab {
   overflow: hidden;
   background-color: #f1f1f1;
@@ -44,11 +48,11 @@ body {
 .settings-btn {
   background-color: transparent;
   border: none;
+  padding: 10px 12px;
 }
 
 .settings-btn img {
-  width: 24px;
-  height: 24px;
+  display: block;
 }
 
 .tabcontent {
@@ -57,7 +61,7 @@ body {
   border: 1px solid #ccc;
   border-top: none;
   position: absolute;
-  top: 80px;
+  top: 46px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -66,7 +70,7 @@ body {
 
 .tabcontent iframe {
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 46px);
   border: none;
 }
 
@@ -74,7 +78,7 @@ body {
   display: none;
   position: absolute;
   right: 0;
-  top: 80px;
+  top: 46px;
   background-color: #f1f1f1;
   padding: 20px;
   border: 1px solid #ccc;
@@ -94,8 +98,4 @@ body {
 .settings-item input {
   flex: 2;
   margin-left: 10px;
-}
-
-.container {
-  position: relative;
 }
