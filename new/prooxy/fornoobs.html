@@ -29,7 +29,7 @@ body{margin:0;font-family:Arial,sans-serif}.container{position:relative}.tab{ove
     </div>
     <div class="settings-item">
       <label for="favicon-title">Favicon and Title:</label>
-      <input type="text" id="favicon-title">
+<input type="text" id="favicon-title" oninput="updateFaviconTitle()">
     </div>
   </div>
 </div>
@@ -78,6 +78,11 @@ function openSettings() {
   } else {
     settingsMenu.style.display = "none";
   }
+}
+  function updateFaviconTitle() {
+  var faviconTitleInput = document.getElementById('favicon-title');
+  var newTitle = faviconTitleInput.value;
+  document.title = newTitle;
 }
   </script>
   </body>
