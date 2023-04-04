@@ -1,75 +1,71 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const hiddenBtn = document.getElementById("hidden-btn");
-  document.addEventListener("keydown", function (event) {
-    if (event.keyCode === 192) { // keyCode 192 corresponds to the "`" key
-      hiddenBtn.style.display = hiddenBtn.style.display === "none" ? "block" : "none";
-    }
-  });
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  var tab = document.getElementById(tabName);
+  tab.style.display = "block";
+  evt.currentTarget.className += " active";
+
+  var iframe = tab.querySelector("iframe");
+  if (!iframe.hasAttribute("src")) {
+    iframe.src = "https://agent-gamer-cool-thing.474652.workers.dev";
+  }
+}
+
+function newTab() {
+  var numTabs = document.getElementsByClassName("tablinks").length + 1;
+  if (numTabs > 12) return;
+
+  var tabButton = document.createElement("button");
+  tabButton.className = "tablinks";
+  tabButton.innerHTML = "Tab " + numTabs;
+  tabButton.onclick = function() {
+    openTab(event, "Tab" + numTabs);
+  };
+  var tabContent = document.createElement("div");
+  tabContent.id = "Tab" + numTabs;
+  tabContent.className = "tabcontent";
+  tabContent.innerHTML = "<iframe></iframe>";
+
+  var tabDiv = document.getElementsByClassName("tab-left")[0];
+  tabDiv.appendChild(tabButton);
+  document.body.appendChild(tabContent);
+}
+
+function openSettings() {
+  var settingsMenu = document.getElementById("settings-menu");
+  if (settingsMenu.style.display === "none") {
+    settingsMenu.style.display = "block";
+  } else {
+    settingsMenu.style.display = "none";
+  }
+}
+
+document.getElementById("hotbar-color").addEventListener("change", function() {
+  var hotbar = document.getElementsByClassName("tab")[0];
+  hotbar.style.backgroundColor = this.value;
 });
-const textList = [
-  "Insert Text Here",
-  "Javascript Is Cool",
-  "Go Touch Grass",
-  "outdoorschool",
-  "Crazygird=Gamign",
-];
 
-const dadJokes = [
-  "what did the mathmatician say to his insurance company when he got into a car accident?",
-  "his car got totalled!",
-  "hahaha.....",
-];
-
-let dadJokeIndex = -1;
-let canChangeText = true;
-
-function changeText() {
-  if (!canChangeText) return;
-
-  const clickableText = document.getElementById("clickable-text");
-
-  // 1% chance to start displaying dad jokes
-  if (Math.random() < 0.01 && dadJokeIndex === -1) {
-    dadJokeIndex = 0;
-    showDadJokes();
-  } else {
-    const randomIndex = Math.floor(Math.random() * textList.length);
-    clickableText.textContent = textList[randomIndex];
+document.getElementById("proxy-url").addEventListener("change", function() {
+  var iframes = document.querySelectorAll("iframe");
+  for (var i = 0; i < iframes.length; i++) {
+    iframes[i].src = this.value;
   }
+});
 
-  // 5% chance to start playing audio
-  if (Math.random() < 0.05) {
-    const audioChoices = [
-      "https://insert-text-here.github.io/files/doublekill.mp3",
-      "https://insert-text-here.github.io/files/gettrolled.mp3",
-          "https://insert-text-here.github.io/files/NUTS.mp3",
-    "https://insert-text-here.github.io/files/rickroll.mp3",
-    ];
-    const audioIndex = Math.floor(Math.random() * audioChoices.length);
-    const audio = new Audio(audioChoices[audioIndex]);
-    audio.play();
-  }
-}
-
-function showDadJokes() {
-  if (dadJokeIndex < 0 || dadJokeIndex >= dadJokes.length) return;
-
-  const clickableText = document.getElementById("clickable-text");
-  clickableText.textContent = dadJokes[dadJokeIndex];
-  dadJokeIndex++;
-
-  if (dadJokeIndex < dadJokes.length) {
-    canChangeText = false;
-    setTimeout(() => {
-      canChangeText = true;
-      showDadJokes();
-    }, 5000);
-  } else {
-    dadJokeIndex = -1;
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const clickableText = document.getElementById("clickable-text");
-  clickableText.addEventListener("click", changeText);
+document.getElementById("favicon-title").addEventListener("change", function() {
+  document.title = this.value;
+  var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+  link.type = "image/x-icon";
+  link.rel = "shortcut icon";
+  link.href = this.value;
+  document.getElementsByTagName("head")[0].appendChild(link);
 });
