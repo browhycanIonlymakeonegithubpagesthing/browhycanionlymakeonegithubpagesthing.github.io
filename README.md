@@ -9,3 +9,4 @@ This is a website, and here we do many things
 - Also a backbone for a school project for Insert Text Here (creator) \
 Hope you enjoy!
 Also, please star because whynot
+\ The MC was from yexex of yexex.github.io btw 
