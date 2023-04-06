@@ -17,6 +17,14 @@
 		
 		function _onCreeperLoaded() {
 		  _gameCreeper.newGame();
+		  _gameCreeper.newGame();
+		  _gameCreeper.newGame();
+		  _gameCreeper.newGame();
+		  _gameCreeper.newGame();
+		  _gameCreeper.newGame();
+		  _gameCreeper.newGame();
+		  _gameCreeper.newGame();
+
 		};
 
 		_init();
